@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX | Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div class="background"><img src="{{ url_for('static', filename='images/medical.jpg') }}" alt="banner"></div>
+    <div class="container">
+        <div class="log">
+            <form action="{{ url_for('register') }}" method="POST">
+                <h2>Register</h2>   
+
+                <div class="input-group">
+                    <ion-icon name="person"></ion-icon>
+                    <input type="text" name="name" placeholder="Enter Name" required />
+                </div>
+
+                <div class="input-group">
+                    <ion-icon name="mail"></ion-icon>
+                    <input type="email" name="email" placeholder="Enter Email" required />
+                </div>
+
+                <div class="input-group">
+                    <ion-icon name="aperture"></ion-icon>
+                    <input type="number" name="age" placeholder="Enter Age" min="0" max="80" />
+                </div>
+
+                <div class="input-group gender">
+                    <label for="gender">Gender</label><br>
+                    <select name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <input type="password" name="password" placeholder="Enter Password" required />
+                </div>
+
+                <br><br>
+                <button type="submit" class="btn">Register</button>
+            </form><br>
+            <p class="link">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

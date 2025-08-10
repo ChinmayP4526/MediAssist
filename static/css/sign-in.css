@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --base-variant: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(230, 245, 255, 0.85));
+    --text-color: black;
+    --input-border: #cccccc;
+    --button-background: rgb(255, 150, 4);
+    --white: white;
+    --link-color: #2c5364;
+}
+
+.background img {
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+    filter: brightness(0.8);
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 130px;
+    width: 40vw;
+    height: 60vh;
+    margin-top: 120px;
+    margin-left: 100px;
+    background: var(--base-variant);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+form h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.input-group ion-icon {
+    position: absolute;
+    left: 10px;
+    color: rgb(0, 0, 0);
+    pointer-events: none;
+}
+
+form a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.input-group input {
+    padding: 10px 10px 10px 35px;
+    width: 210px;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    outline: none;
+
+}
+
+.btn {
+    padding: 10px;
+    background-color: var(--button-background);
+    border: 2px solid black;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 15px;
+    width: 150px;
+}
+
+.reg {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.reg button {
+    width: 120px;
+}
+
+.reg h2 {
+    color: var(--text-color);
+    font-size: 24px;
+    text-align: center;
+}
+
+.reg a {
+    padding: 10px;
+    background-color: var(--button-background);
+    border: 2px solid black;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.container::before {
+    content: "OR";
+    position: absolute;
+    top: 49%;
+    left: 29.2%;
+    transform: translate(-50%, -50%);
+    background-color: var(--button-background);
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    z-index: 1;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    height: 41%;
+    width: 1px;
+    background-color: black;
+    top: 14%;
+    left: 26%;
+    transform: translateX(-50%);
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+@media (max-width:768px) {
+    .container {
+        gap: 36px;
+        width: 55vw;
+    }
+
+    .container::before {
+        left: 43.2%;
+    }
+
+    .container::after {
+        left: 37%;
+    }
+}
+
+@media (max-width:430px) {
+    .background img {
+        object-fit: cover;
+    }
+
+    .container {
+        width: 85%;
+        margin: auto auto;
+        margin-top: 160px;
+        flex-direction: column;
+        gap: 49px;
+        height: 65vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .container::before {
+        top: 68%;
+        padding: 6px 13px;
+        left: 50.2%;
+    }
+
+    .container::after {
+        transform: rotate(90deg);
+        top: 33%;
+
+        left: 39%;
+    }
+
+    form {
+        margin-left: 25px;
+    }
+
+    form button {
+        margin-left: 20px;
+    }
+
+    form a {
+        margin-left: 35px;
+    }
+
+}
+
+@media (max-width:380px) {
+    .container::after {
+        height: 40%;
+        left: 37%;
+    }
+}
+
+@media(max-width:325px) {
+    .container::after{
+
+        height: 33%;
+        left: 34%;
+        top: 37%;
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX | MediAssist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+
+</head>
+<body>
+
+<body>
+    <button id="theme-switch">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+                d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+                d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z" />
+        </svg>
+    </button>
+    <div class="container">
+
+        <aside> <!-- sidebar -->
+            <div class="box box1">
+                <div class="logout-container">
+                 <button id="logoutBtn">Logout</button>
+</div>
+
+                <div class="flex">
+                    <div class="flex title">
+
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-160v-80h560v80H200Zm0-140-51-321q-2 0-4.5.5t-4.5.5q-25 0-42.5-17.5T80-680q0-25 17.5-42.5T140-740q25 0 42.5 17.5T200-680q0 7-1.5 13t-3.5 11l125 56 125-171q-11-8-18-21t-7-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820q0 15-7 28t-18 21l125 171 125-56q-2-5-3.5-11t-1.5-13q0-25 17.5-42.5T820-740q25 0 42.5 17.5T880-680q0 25-17.5 42.5T820-620q-2 0-4.5-.5t-4.5-.5l-51 321H200Z"/></svg>Crown-->
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                        <h2>MediAssist</h2>
+                    </div>
+                    <div class="pencil">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#e3e3e3">
+                            <path
+                                d="M167-120q-21 5-36.5-10.5T120-167l40-191 198 198-191 40Zm191-40L160-358l458-458q23-23 57-23t57 23l84 84q23 23 23 57t-23 57L358-160Zm317-600L261-346l85 85 414-414-85-85Z" />
+                        </svg><!--Pencil-->
+                    </div>
+
+                </div>
+                <div class="second">
+                    <button class="new-btn">+ New Chat</button>
+                </div>
+                <div class="searching">
+
+                    <input type="text" id="SearchChat"placeholder="Search..." >
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e3e3e3">
+                        <path
+                            d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                    </svg> <!--search-->
+                </div>
+                <p>Your Conversations</p>
+                <!-- Sidebar conversation list -->
+                <div class="conversations" id="savedChats">
+                    <!-- Chat titles will be added here dynamically -->
+                </div>
+
+            </div>
+
+        </aside>
+        <main><!-- Chatbox -->
+
+            <div class="box box2">
+                
+                <section class="chat" id="chatContainer"></section>
+                <div class="chat-input">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <!-- <i class="fa-solid fa-brain"></i> -->
+                    <input type="text" id="chatInput" placeholder="Describe your symptoms... " />
+                    <i class="fa-solid fa-microphone"></i>
+                    <button id="sendBtn"><i class="fa-solid fa-arrow-up"></i></button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script>
+    const themeToggleBtn = document.getElementById("theme-switch");
+    const body = document.body;
+
+    // Load the saved theme on page load
+    window.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            body.classList.add("darkmode");
+        }
+    });
+
+    // Toggle theme on button click
+    themeToggleBtn.addEventListener("click", () => {
+        body.classList.toggle("darkmode");
+
+        // Save preference
+        const isDark = body.classList.contains("darkmode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+</script>
+</body>
+
+</html>
